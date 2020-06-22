@@ -1,1 +1,0 @@
-# ct-ofa-slack-bot
