@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node ./src",
     "dev": "jest --watch",
+    "dev-inspect": "node --inspect-brk node_modules/.bin/jest --runInBand",
     "test": "jest"
   },
   "dependencies": {
