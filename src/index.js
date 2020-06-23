@@ -13,7 +13,7 @@ const { BotkitCMSHelper } = require("botkit-plugin-cms");
 const {
   SlackAdapter,
   SlackMessageTypeMiddleware,
-  SlackEventMiddleware
+  SlackEventMiddleware,
 } = require("botbuilder-adapter-slack");
 
 // Load process.env values from .env file
@@ -49,7 +49,7 @@ const adapter = new SlackAdapter({
   // functions required for retrieving team-specific info
   // for use in multi-team apps
   getTokenForTeam: getTokenForTeam,
-  getBotUserByTeam: getBotUserByTeam
+  getBotUserByTeam: getBotUserByTeam,
 });
 
 // Use SlackEventMiddleware to emit events that match their original Slack event types.
@@ -61,7 +61,7 @@ adapter.use(new SlackMessageTypeMiddleware());
 const controller = new Botkit({
   webhook_uri: "/api/messages",
 
-  adapter: adapter
+  adapter: adapter,
 
   //storage
 });
@@ -70,7 +70,7 @@ if (process.env.cms_uri) {
   controller.usePlugin(
     new BotkitCMSHelper({
       cms_uri: process.env.cms_uri,
-      token: process.env.cms_token
+      token: process.env.cms_token,
     })
   );
 }
@@ -136,8 +136,8 @@ if (process.env.USERS) {
 
 async function getTokenForTeam(teamId) {
   if (tokenCache[teamId]) {
-    return new Promise(resolve => {
-      setTimeout(function() {
+    return new Promise((resolve) => {
+      setTimeout(function () {
         resolve(tokenCache[teamId]);
       }, 150);
     });
@@ -148,8 +148,8 @@ async function getTokenForTeam(teamId) {
 
 async function getBotUserByTeam(teamId) {
   if (userCache[teamId]) {
-    return new Promise(resolve => {
-      setTimeout(function() {
+    return new Promise((resolve) => {
+      setTimeout(function () {
         resolve(userCache[teamId]);
       }, 150);
     });
