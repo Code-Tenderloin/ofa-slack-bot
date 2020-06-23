@@ -4,7 +4,7 @@ const fileBeingTested = require("./announceInChannelOnBoot");
 describe("controller.ready", () => {
   let controller;
   beforeEach(() => {
-    process.env.MYTEAM = {};
+    process.env.MYTEAM = "team";
     process.env.MYCHAN = "my channel";
     process.env.MYUSER = "my user";
 
@@ -19,5 +19,17 @@ describe("controller.ready", () => {
     expect(
       controller.detailed_answers[process.env.MYCHAN][0].conversation.id
     ).toEqual(process.env.MYCHAN);
+  });
+
+  it("but not when process.env.MYTEAM is empty", () => {
+    process.env.MYTEAM = undefined;
+
+    expect(controller.detailed_answers).toStrictEqual({});
+  });
+
+  it("but not when process.env.MYCHAN is empty", () => {
+    process.env.MYCHAN = undefined;
+
+    expect(controller.detailed_answers).toStrictEqual({});
   });
 });
