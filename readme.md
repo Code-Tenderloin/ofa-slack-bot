@@ -4,8 +4,8 @@
 
 ### Open Source Governance
 
-- [ ] Licensed under the MIT license
-- [ ] Has a Code of Conduct for contributors
+- [x] Licensed under the MIT license
+- [x] Has a Code of Conduct for contributors
 
 ### Setup
 - [x] configurable for deployment via .env as a single bot to run in a single slack workspace
@@ -24,6 +24,8 @@
 - [ ] Agile morning standup to have each student answer the questions: "What did you work on yesterday?" "What are you working on today?" and "What are you having trouble with?"  These responses can be printed with the command `list attendance {class} {date}`.
 
 ## Development
+
+All contributors to this project are expected to adhere to our [Code of Conduct](./CODE_OF_CONDUCT.md).
 
 This bot is powered by [Botkit](https://botkit.ai/docs/v4) and [a folder full of modules](https://botkit.ai/docs/v4/core.html#organize-your-bot-code) in the [./src/features/](./src/features/) folder.
 
