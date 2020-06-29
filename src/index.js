@@ -75,18 +75,16 @@ if (process.env.cms_uri) {
   );
 }
 
+const loadFilesFromDirectory = require('./lib/loadFilesFromDirectory')
 // utility to only load modules that do not have .test.js extensions
-const { readdir } = require("fs");
-const util = require("util");
-const readdirAsync = util.promisify(readdir);
 const loadModules = async (controller, directory) => {
-  const isNotTestJs = (file) => file.indexOf("test.js") < 0;
   const loadModule = (path) => {
     controller.loadModule(directory + "/" + path);
   };
-  // get all files in directory
-  const files = await readdirAsync(directory);
-  files.filter(isNotTestJs).map(loadModule);
+  
+  const files = await loadFilesFromDirectory(directory, /test.js$/);
+  
+  files.map(loadModule);
 };
 
 // Once the bot has booted up its internal services, you can use them to do stuff.
