@@ -15,6 +15,7 @@
 - [ ] an auditor flag may be added to any persona assigned to a user so that they have the capabilities of that persona but are not automatically assigned to breakout rooms by the `make breakout rooms` command
 
 ### Commands
+- [ ] `emails {class}` displays a list of email addresses for a class suitable for copy/pasting into a bcc field
 - [ ] `audit cohort` displays all users and their personas
 - [ ] `audit {email address}` displays which files provided that email address with the associated personas
 - [ ] `invite cohort` sychronizes the list of participants in Slack, inviting new participants and assigning participants to the appropriate slack channels for each class
