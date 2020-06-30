@@ -8,6 +8,8 @@
 const { Botkit } = require("botkit");
 const { BotkitCMSHelper } = require("botkit-plugin-cms");
 
+const loadFilesFromDirectory = require('./lib/loadFilesFromDirectory')
+
 // Import a platform-specific adapter for slack.
 
 const {
@@ -75,7 +77,6 @@ if (process.env.cms_uri) {
   );
 }
 
-const loadFilesFromDirectory = require('./lib/loadFilesFromDirectory')
 // utility to only load modules that do not have .test.js extensions
 const loadModules = async (controller, directory) => {
   const loadModule = (path) => {
